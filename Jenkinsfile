@@ -8,11 +8,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh '.\gradlew build --no-daemon'
                 sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
+                sh '.\gradlew build --no-daemon'   
                 sh 'mvn test'
             }
             post {
@@ -23,6 +25,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
+                sh '.\gradlew build --no-daemon'    
                 sh './jenkins/scripts/deliver.sh'
             }
         }
