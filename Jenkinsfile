@@ -13,8 +13,7 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                sh './gradlew build --no-daemon'   
+            steps {  
                 sh 'mvn test'
             }
             post {
@@ -24,8 +23,7 @@ pipeline {
             }
         }
         stage('Deliver') {
-            steps {
-                sh './gradlew build --no-daemon'    
+            steps {  
                 sh './jenkins/scripts/deliver.sh'
             }
         }
