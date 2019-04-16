@@ -3,6 +3,8 @@ pipeline {
         docker {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
+            args 'docker run -v /var/run/docker.sock:/var/run/docker.sock'
+            args 'docker run -v /var/run/docker.sock:/var/run/docker.sock \-ti docker'
         }
     }
     stages {
