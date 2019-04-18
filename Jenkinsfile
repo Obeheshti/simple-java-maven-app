@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh '/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven_361/bin/mvn
+ test'
             }
             post {
                 always {
